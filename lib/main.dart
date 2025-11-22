@@ -39,7 +39,7 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   final TextEditingController _notesController = TextEditingController();
 
-  SandwichType _selectedSandwichType = SandwichType.veggieDelight;
+  final SandwichType _selectedSandwichType = SandwichType.veggieDelight;
   bool _isFootlong = true;
   BreadType _selectedBreadType = BreadType.white;
   int _quantity = 0;
@@ -67,12 +67,10 @@ class _OrderScreenState extends State<OrderScreen> {
         breadType: _selectedBreadType,
       );
 
-      // Prepare the confirmation message BEFORE changing the state.
       String sizeText = _isFootlong ? 'footlong' : 'six-inch';
       String confirmationMessage =
           'Added $_quantity $sizeText ${sandwich.name} sandwich(es) on ${_selectedBreadType.name} bread to cart';
 
-      // Update state: add to cart and reset quantity.
       setState(() {
         for (int i = 0; i < _quantity; i++) {
           cart.addSandwich(sandwich);
@@ -80,7 +78,6 @@ class _OrderScreenState extends State<OrderScreen> {
         _quantity = 0;
       });
 
-      // Show the SnackBar confirmation AFTER state update.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(confirmationMessage),
@@ -97,20 +94,6 @@ class _OrderScreenState extends State<OrderScreen> {
     return null;
   }
 
-  List<DropdownMenuEntry<SandwichType>> _buildSandwichTypeEntries() {
-    List<DropdownMenuEntry<SandwichType>> entries = [];
-    for (SandwichType type in SandwichType.values) {
-      Sandwich sandwich =
-          Sandwich(type: type, size: SandwichSize.footlong, breadType: BreadType.white);
-      DropdownMenuEntry<SandwichType> entry = DropdownMenuEntry<SandwichType>(
-        value: type,
-        label: sandwich.name,
-      );
-      entries.add(entry);
-    }
-    return entries;
-  }
-
   List<DropdownMenuEntry<BreadType>> _buildBreadTypeEntries() {
     List<DropdownMenuEntry<BreadType>> entries = [];
     for (BreadType bread in BreadType.values) {
@@ -124,27 +107,12 @@ class _OrderScreenState extends State<OrderScreen> {
   }
 
   String _getCurrentImagePath() {
-    if (_selectedSandwichType == SandwichType.veggieDelight) {
-      if (_isFootlong) {
-        return 'assets/image/veggieDelight_footlong.png';
-      } else {
-        return 'assets/image/veggieDelight_sixinch.png';
-      }
-    }
     final Sandwich sandwich = Sandwich(
       type: _selectedSandwichType,
       size: _isFootlong ? SandwichSize.footlong : SandwichSize.sixInch,
       breadType: _selectedBreadType,
     );
     return sandwich.image;
-  }
-
-  void _onSandwichTypeChanged(SandwichType? value) {
-    if (value != null) {
-      setState(() {
-        _selectedSandwichType = value;
-      });
-    }
   }
 
   void _onSizeChanged(bool value) {
@@ -252,14 +220,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              DropdownMenu<SandwichType>(
-                width: double.infinity,
-                label: const Text('Sandwich Type'),
-                textStyle: normalText,
-                initialSelection: _selectedSandwichType,
-                onSelected: _onSandwichTypeChanged,
-                dropdownMenuEntries: _buildSandwichTypeEntries(),
-              ),
+              const Text('Sandwich: Veggie Delight', style: heading2, textAlign: TextAlign.center),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

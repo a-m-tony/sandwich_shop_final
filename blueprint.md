@@ -1,25 +1,28 @@
-# Sandwich Shop App Blueprint
+# Project Blueprint
 
-## Project Overview
+## Overview
 
-A Flutter application that allows users to build and customize their own sandwiches.
+This is a Flutter application for a sandwich shop. It allows users to select a sandwich, customize it, and add it to a cart.
 
-## Implemented Features
+## Style, Design, and Features
 
-*   **Home Page:** A landing page with a welcome message and a button to start building a sandwich.
-*   **Sandwich Builder Page:** A new screen for building the sandwich (currently a placeholder).
-*   **Navigation:** Basic navigation between the home page and the sandwich builder page.
-*   **Project Structure:** 
-    *   `assets/images`: Folder for storing images.
-    *   `lib/models/sandwich.dart`: Data model for a sandwich.
-    *   `lib/views/sandwich_builder_page.dart`: The UI for the sandwich builder.
+* **Framework:** Flutter
+* **State Management:** Provider
+* **UI:**
+    * A main screen for ordering sandwiches.
+    * A dropdown for selecting the sandwich type.
+    * A toggle for selecting the sandwich size (six-inch or footlong).
+    * A dropdown for selecting the bread type.
+    * A quantity selector.
+    * An "Add to Cart" button.
+    * A cart icon that displays the number of items in the cart.
+* **Assets:**
+    * Images for different sandwiches and sizes.
+    * A cart icon.
 
-## Current Plan
+## Current Task: Add individual image declarations to pubspec.yaml
 
-1.  **Flesh out the Sandwich Builder Page:**
-    *   Add UI elements for selecting bread, ingredients, and sauces.
-    *   Use the `Sandwich` model to manage the state of the sandwich being built.
-2.  **Display Sandwich Image:**
-    *   Add an image to the home page.
-3.  **Improve Theming and Styling:**
-    *   Apply a consistent and visually appealing theme to the application.
+* **Goal:** Add `veggieDelight_footlong.png` and `veggieDelight_sixinch.png` to the `assets` section of `pubspec.yaml`.
+* **Plan:**
+    1.  Modify `pubspec.yaml` to include the individual image declarations.
+    2.  Run `flutter pub get` to update the project.

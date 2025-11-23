@@ -3,9 +3,10 @@ import 'package:myapp/model/cart.dart';
 import 'package:myapp/repository/pricing_repository.dart';
 import 'package:myapp/model/sandwich.dart';
 import 'package:mockito/mockito.dart';
+import 'package:mockito/annotations.dart';
+import 'cart_test.mocks.dart';
 
-class MockPricingRepository extends Mock implements PricingRepository {}
-
+@GenerateMocks([PricingRepository])
 void main() {
   group('Cart', () {
     test('should be able to add a sandwich', () {
@@ -47,18 +48,18 @@ void main() {
         breadType: BreadType.white,
       );
       final sandwich2 = Sandwich(
-        type: SandwichType.chickenTeriyaki,
+        type: SandwichType.veggieDelight,
         size: SandwichSize.sixInch,
         breadType: BreadType.wheat,
       );
 
-      when(pricingRepository.getPrice(sandwich1)).thenReturn(5.50);
-      when(pricingRepository.getPrice(sandwich2)).thenReturn(7.00);
+      when(pricingRepository.getPrice(sandwich1)).thenReturn(11.0);
+      when(pricingRepository.getPrice(sandwich2)).thenReturn(7.0);
 
       cart.addSandwich(sandwich1);
       cart.addSandwich(sandwich2);
 
-      expect(cart.totalPrice, 12.50);
+      expect(cart.totalPrice, 18.0);
     });
   });
 }

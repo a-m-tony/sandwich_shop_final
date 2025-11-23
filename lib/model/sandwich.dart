@@ -1,8 +1,5 @@
-
 enum SandwichType {
-  veggieDelight('Veggie Delight'),
-  tunaMelt('Tuna Melt'),
-  chickenTeriyaki('Chicken Teriyaki');
+  veggieDelight('Veggie Delight');
 
   const SandwichType(this.name);
   final String name;
@@ -38,21 +35,16 @@ class Sandwich {
   String get name => type.name;
 
   String get image {
-    String imageName;
+    String typeString;
     switch (type) {
       case SandwichType.veggieDelight:
-        imageName = size == SandwichSize.footlong ? 'veggieDelight_footlong.png' : 'veggieDelight_sixinch.png';
-        break;
-      case SandwichType.tunaMelt:
-        // Fallback to veggie delight images as tuna melt images are not available
-        imageName = size == SandwichSize.footlong ? 'veggieDelight_footlong.png' : 'veggieDelight_sixinch.png';
-        break;
-      case SandwichType.chickenTeriyaki:
-        // Only footlong image is available for chicken sandwich.
-        imageName = size == SandwichSize.footlong ? 'veggieDelight_footlong.png' : 'veggieDelight_sixinch.png';
+        typeString = 'veggie';
         break;
     }
-    return 'assets/image/$imageName';
+
+    String sizeString = size == SandwichSize.footlong ? 'footlong' : 'sixinch';
+
+    return 'assets/image/${typeString}_$sizeString.png';
   }
 
   // Override `==` and `hashCode` to allow for proper object comparison in the cart.

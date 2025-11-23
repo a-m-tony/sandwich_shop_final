@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:myapp/repository/pricing_repository.dart';
 import 'package:myapp/model/sandwich.dart';
@@ -17,7 +16,8 @@ class Cart extends ChangeNotifier {
     return _sandwiches.entries.fold(0.0, (total, entry) {
       final sandwich = entry.key;
       final quantity = entry.value;
-      return total + (_pricingRepository.getPrice(sandwich) * quantity);
+      final price = _pricingRepository.getPrice(sandwich);
+      return total + (price * quantity);
     });
   }
 

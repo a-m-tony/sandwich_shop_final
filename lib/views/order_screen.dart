@@ -23,10 +23,9 @@ class _OrderScreenState extends State<OrderScreen> {
         size: SandwichSize.footlong,
         breadType: BreadType.wheat),
     Sandwich(
-        type: SandwichType.tunaMelt, 
-        size: SandwichSize.footlong, 
-        breadType: BreadType.white
-    ),
+        type: SandwichType.veggieDelight,
+        size: SandwichSize.footlong,
+        breadType: BreadType.white),
   ];
 
   void _addSandwichToCart(Sandwich sandwich) {

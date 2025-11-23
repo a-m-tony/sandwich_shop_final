@@ -1,12 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 class StyledButton extends StatelessWidget {
-  final VoidCallback? onPressed;
-  final IconData icon;
-  final String label;
-  final Color backgroundColor;
-
   const StyledButton({
     super.key,
     required this.onPressed,
@@ -14,6 +8,11 @@ class StyledButton extends StatelessWidget {
     required this.label,
     required this.backgroundColor,
   });
+
+  final VoidCallback? onPressed;
+  final IconData icon;
+  final String label;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {

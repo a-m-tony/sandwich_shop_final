@@ -60,6 +60,4 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/image/
-    - assets/image/veggieDelight_footlong.png
-    - assets/image/veggieDelight_sixinch.png
+    - assets/images/

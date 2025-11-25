@@ -38,7 +38,7 @@ class Sandwich {
     String typeString;
     switch (type) {
       case SandwichType.veggieDelight:
-        typeString = 'veggie';
+        typeString = 'veggieDelight_footlong';
         break;
     }
 

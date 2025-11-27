@@ -38,13 +38,13 @@ class Sandwich {
     String typeString;
     switch (type) {
       case SandwichType.veggieDelight:
-        typeString = 'veggieDelight_footlong';
+        typeString = 'veggieDelight';
         break;
     }
 
     String sizeString = size == SandwichSize.footlong ? 'footlong' : 'sixinch';
 
-    return 'assets/image/${typeString}_$sizeString.png';
+    return 'assets/images/${typeString}_$sizeString.png';
   }
 
   // Override `==` and `hashCode` to allow for proper object comparison in the cart.

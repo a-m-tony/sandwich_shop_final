@@ -175,7 +175,7 @@ class _OrderScreenState extends State<OrderScreen> {
       appBar: AppBar(
         leading: SizedBox(
         height: 100,
-        child: Image.asset('assets/image/logo.png'),
+        child: Image.asset('assets/images/logo.png'),
       ),
       title: const Text(
         'Sandwich Counter',
@@ -187,7 +187,7 @@ class _OrderScreenState extends State<OrderScreen> {
               return Stack(
                 children: [
                   IconButton(
-                    icon: Image.asset('assets/image/cart.png'),
+                    icon: Image.asset('assets/images/cart.png'),
                     onPressed: () {
                       // TODO: Navigate to cart screen
                     },

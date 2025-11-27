@@ -44,7 +44,7 @@ class Sandwich {
 
     String sizeString = size == SandwichSize.footlong ? 'footlong' : 'sixinch';
 
-    return 'assets/images/${typeString}_$sizeString.png';
+    return 'images/${typeString}_$sizeString.png';
   }
 
   // Override `==` and `hashCode` to allow for proper object comparison in the cart.
